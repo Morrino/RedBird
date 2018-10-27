@@ -9,11 +9,8 @@ worlds = {
 }
 
 
-def print_worlds():
-
-    for key, value in worlds.items():
-        print(f"{key}: {value}")
-
+def worlds_string():
+    return "\n".join([f"{k}: {v}" for k, v in worlds.items()])
 
 def welcome_user():
     username = input("Please, enter your character's nickname for the game: \n")
@@ -27,9 +24,8 @@ def welcome_user():
 
 
 def select_world(username):
-    print(f"Please, select a world to explore: ")
-    print_worlds()
-    world = input()
+    print(f"Please, select a world to explore:\n")
+    world = input(f"{worlds_string()}\n")
     print(f"You chose wisely, {username}. Be careful and look out for the red birds in {worlds[world]}.")
 
 
