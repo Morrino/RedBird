@@ -1,2 +1,5 @@
 __pycache__/
 *.py[cod]
+
+# Some stupid unwanted DS Store from Apple
+.DS_Store
