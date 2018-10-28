@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # coding=utf-8
 
+from rooms.room import Room
+
 worlds = {
     '1': "Rain forest hipster",
     '2': "Steampunk underground township",
@@ -47,3 +49,29 @@ if __name__ == '__main__':
   welcome = WelcomeToRedBirdGame()
   #welcome.username
   #welcome.world
+  room = Room('a room only leading north')
+  room.north = Room('a room north of beginning')
+  while True:
+    try:
+      print("")
+      print(f'You are in a room in {worlds[welcome.world]}.')
+      print(f"It's {room.description}.")
+      answer = input(f"What do you do, {welcome.username}? ")
+      if 'q' == answer:
+        break
+      elif 'go' in answer:
+        if 'north' in answer:
+          nextroom = room.north
+        if 'south' in answer:
+          nextroom = room.south
+        if 'east' in answer:
+          nextroom = room.east
+        if 'west' in answer:
+          nextroom = room.west
+      assert nextroom is not None#, 'wat?'
+      room = nextroom
+    except:
+      print("")
+      print('wat?')
+      continue
+  print('See you soon!')
