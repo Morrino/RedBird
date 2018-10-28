@@ -25,11 +25,25 @@ def welcome_user():
 
 
 def select_world(username):
-    print(f"Please, select a world to explore:\n")
-    world = input(f"{worlds_string()}\n")
-    print(f"You chose wisely, {username}. Be careful and look out for the red birds in {worlds[world]}.")
+    while True:
+      try:
+        print(f"Please, select a world to explore:\n")
+        world = input(f"{worlds_string()}\n")
+
+        assert world in worlds.keys(), 'Yoyo, choose a correct world, por favor!'
+        print(f"You chose wisely, {username}. Be careful and look out for the red birds in {worlds[world]}.")
+      except:
+        continue
+      break
+    return world
 
 
 class WelcomeToRedBirdGame:
-    username = welcome_user()
-    select_world(username)
+    def __init__(self):
+      self.username = welcome_user()
+      self.world = select_world(self.username)
+
+if __name__ == '__main__':
+  welcome = WelcomeToRedBirdGame()
+  #welcome.username
+  #welcome.world
