@@ -62,14 +62,19 @@ if __name__ == '__main__':
       elif 'go' in answer:
         if 'north' in answer:
           nextroom = room.north
+          nextroom.south = room
         if 'south' in answer:
           nextroom = room.south
+          nextroom.north = room
         if 'east' in answer:
           nextroom = room.east
+          nextroom.west = room
         if 'west' in answer:
           nextroom = room.west
+          nextroom.east = room
       assert nextroom is not None#, 'wat?'
       room = nextroom
+
     except:
       print("")
       print('wat?')
