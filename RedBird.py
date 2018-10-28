@@ -2,6 +2,7 @@
 # coding=utf-8
 
 from rooms.room import Room
+from worlds.world import World
 
 worlds = {
     '1': "Rain forest hipster",
@@ -49,12 +50,16 @@ if __name__ == '__main__':
   welcome = WelcomeToRedBirdGame()
   #welcome.username
   #welcome.world
-  room = Room('a room only leading north')
-  room.north = Room('a room north of beginning')
+
+  world = World(worlds[welcome.world])
+  world.start = Room('a room only leading north')
+  world.start.north = Room('a room north of beginning')
+
+  room = world.start
   while True:
     try:
       print("")
-      print(f'You are in a room in {worlds[welcome.world]}.')
+      print(f'You are in a room in {world.description}.')
       print(f"It's {room.description}.")
       answer = input(f"What do you do, {welcome.username}? ")
       if 'q' == answer:
@@ -74,6 +79,7 @@ if __name__ == '__main__':
           nextroom.east = room
       assert nextroom is not None#, 'wat?'
       room = nextroom
+      nextroom = None
 
     except:
       print("")
