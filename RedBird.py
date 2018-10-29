@@ -5,6 +5,15 @@ from rooms.room import Room
 from worlds.world import World
 
 new_line = "\n"
+
+red_bird_title = """
+ ____          _   ____  _         _
+|  _ \ ___  __| | | __ )(_)_ __ __| |
+| |_) / _ \/ _` | |  _ \| | '__/ _` |
+|  _ <  __/ (_| | | |_) | | | | (_| |
+|_| \_\___|\__,_| |____/|_|_|  \__,_|
+"""
+
 worlds = {
     '1': "Rain Forest Hipster",
     '2': "Steampunk Underground Township",
@@ -17,7 +26,9 @@ worlds = {
 def worlds_string():
     return new_line.join([f"{key}: {value}" for key, value in worlds.items()])
 
+
 def welcome_user():
+    print(red_bird_title)
     username = input(f"Please, enter your character's nickname for the game: {new_line}")
 
     if not username:
@@ -63,7 +74,9 @@ if __name__ == '__main__':
       print("")
       print(f'You are in a room in {world.description}.')
       print(f"It's {room.description}.")
-      answer = input(f"What do you do, {welcome.username}? ").lower()
+      answer = input(f"What do you do, {welcome.username}? ") 
+      answer = answer.lower()
+
       if 'q' or 'quit'  == answer:
         break
       elif 'go' in answer:
