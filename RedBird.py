@@ -81,7 +81,7 @@ if __name__ == '__main__':
       answer = input(f"What do you do, {welcome.username}? ") 
       answer = answer.lower()
 
-      if 'q' or 'quit'  == answer:
+      if 'q' == answer or 'quit' == answer:
         break
       elif 'go' in answer:
         if 'north' in answer:
