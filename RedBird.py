@@ -2,7 +2,7 @@
 # coding=utf-8
 
 from rooms.room import Room
-from worlds.world import World
+from worlds.world import World, RandomWorld
 
 new_line = "\n"
 worlds = {
@@ -52,11 +52,15 @@ if __name__ == '__main__':
   #welcome.username
   #welcome.world
 
-  world = World(worlds[welcome.world])
-  world.start = Room('a room only leading north')
-  world.start.north = Room('a room north of beginning')
+  #world = World(worlds[welcome.world])
+  #world.start = Room('a room only leading north')
+  #world.start.north = Room('a room north of beginning')
+
+  world = RandomWorld(worlds[welcome.world])
 
   room = world.start
+
+  assert room is not None
   while True:
     try:
       print("")
@@ -78,6 +82,8 @@ if __name__ == '__main__':
         if 'west' in answer:
           nextroom = room.west
           nextroom.east = room
+      elif 'die' == answer:
+        break
       assert nextroom is not None#, 'wat?'
       room = nextroom
       nextroom = None
@@ -86,4 +92,8 @@ if __name__ == '__main__':
       print("")
       print('wat?')
       continue
-  print('See you soon!')
+    #except: #die
+  if 'die' == answer:
+    print('You died. So sad.')
+  else:
+    print('See you soon!')
