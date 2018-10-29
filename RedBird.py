@@ -43,7 +43,7 @@ def select_world(username):
     while True:
       try:
         print(f"Please, select a world to explore:{new_line}")
-        world = input(f"{worlds_string()}{new_line}")
+        world = input(f"{worlds_string()}{new_line}? ")
 
         assert world in worlds.keys(), 'Yoyo, choose a correct world, por favor!'
         print(f"{new_line}You chose wisely, {username}. Be careful and look out for the red birds in {worlds[world]}.")
