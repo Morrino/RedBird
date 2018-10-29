@@ -6,11 +6,11 @@ from worlds.world import World
 
 new_line = "\n"
 worlds = {
-    '1': "Rain forest hipster",
-    '2': "Steampunk underground township",
-    '3': "Radiated misty city",
-    '4': "Techno elitist planet",
-    '5': "Blackout tunnel",
+    '1': "Rain Forest Hipster",
+    '2': "Steampunk Underground Township",
+    '3': "Radiated Misty City",
+    '4': "Techno Elitist Planet",
+    '5': "Blackout Tunnel",
 }
 
 
