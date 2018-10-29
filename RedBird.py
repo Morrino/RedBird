@@ -18,7 +18,7 @@ def worlds_string():
     return new_line.join([f"{key}: {value}" for key, value in worlds.items()])
 
 def welcome_user():
-    username = input("Please, enter your character's nickname for the game: \n")
+    username = input(f"Please, enter your character's nickname for the game: {new_line}")
 
     if not username:
         username = "Pepito"
@@ -31,11 +31,12 @@ def welcome_user():
 def select_world(username):
     while True:
       try:
-        print(f"Please, select a world to explore:\n")
-        world = input(f"{worlds_string()}\n")
+        print(f"Please, select a world to explore:{new_line}")
+        world = input(f"{worlds_string()}{new_line}")
 
         assert world in worlds.keys(), 'Yoyo, choose a correct world, por favor!'
-        print(f"You chose wisely, {username}. Be careful and look out for the red birds in {worlds[world]}.")
+        print(f"{new_line}You chose wisely, {username}. Be careful and look out for the red birds in {worlds[world]}.")
+        input()
       except:
         continue
       break
@@ -66,8 +67,8 @@ if __name__ == '__main__':
       print("")
       print(f'You are in a room in {world.description}.')
       print(f"It's {room.description}.")
-      answer = input(f"What do you do, {welcome.username}? ")
-      if 'q' == answer:
+      answer = input(f"What do you do, {welcome.username}? ").lower()
+      if 'q' or 'quit'  == answer:
         break
       elif 'go' in answer:
         if 'north' in answer:
