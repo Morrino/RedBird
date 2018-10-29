@@ -4,6 +4,7 @@
 from rooms.room import Room
 from worlds.world import World
 
+new_line = "\n"
 worlds = {
     '1': "Rain forest hipster",
     '2': "Steampunk underground township",
@@ -14,7 +15,7 @@ worlds = {
 
 
 def worlds_string():
-    return "\n".join([f"{k}: {v}" for k, v in worlds.items()])
+    return new_line.join([f"{key}: {value}" for key, value in worlds.items()])
 
 def welcome_user():
     username = input("Please, enter your character's nickname for the game: \n")
