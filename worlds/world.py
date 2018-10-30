@@ -1,4 +1,3 @@
-#import numpy;
 import random;
 
 from rooms.room import Room
@@ -15,15 +14,26 @@ class RandomWorld:
   or
   x is horizontal (index of width)
   y is vertical   (index of height)
+  0,0 0,1 0,2
+  1,0 1,1 1,2
+  2,0 2,1 2,2
   """
-
-  def _debug_world_1(selfie):
+  def _debug1(selfie):
     for y in range(selfie.height):
       for x in range(selfie.width):
-        print(f'{y},{x} = {selfie.world[y][x].description}')
-        # 0,0 0,1 0,2
-        # 1,0 1,1 1,2
-        # 2,0 2,1 2,2
+        print(f'{y},{x} = {selfie.world[y][x].description if selfie.world[y][x] else ""}')
+
+  def _debug2(selfie):
+    print('  ' + ' '.join([f'{i}' for i in list(range(selfie.width))]))
+    for y in range(selfie.height):
+      print(f'{y} ', end='')
+      for x in range(selfie.width):
+        room = selfie.world[y][x]
+        if room:
+          print('o ', end='')
+        else:
+          print('. ', end='')
+      print("")
 
   def __init__(selfie, description='a randomly generated world', w=5, h=8):
     selfie.description = description
@@ -32,9 +42,7 @@ class RandomWorld:
     selfie.density = 0.5
     selfie.freedom = 0.8
 
-    selfie.world = [[Room(f'a room at {y},{x}') for x in range(w)] for y in range(h)]
-
-    #selfie._debug_world_1()
+    selfie.world = [[Room(f'a room at {y},{x}') if random.random() < selfie.density else None for x in range(w)] for y in range(h)]
 
     # create links between rooms
     for y in range(selfie.height):
@@ -59,5 +67,5 @@ class RandomWorld:
           pass # world limit
 
     # start in a random room on this world
-    flat_world = [j for i in selfie.world for j in i]
+    flat_world = [j for i in selfie.world for j in i if j]
     selfie.start = random.choice(flat_world)

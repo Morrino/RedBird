@@ -98,6 +98,12 @@ if __name__ == '__main__':
           nextroom.east = room
       elif 'die' == answer:
         break
+      elif 'd1' == answer:
+        world._debug1()
+        continue
+      elif 'd2' == answer:
+        world._debug2()
+        continue
       assert nextroom is not None#, 'wat?'
       room = nextroom
       nextroom = None
