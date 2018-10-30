@@ -4,4 +4,4 @@ Todo list
 
 - Print a design and a logo on start
 
-- 'got south' works
+- Fix bug where 'got south' goes south but shouldn't
