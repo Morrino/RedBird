@@ -20,7 +20,7 @@ class RandomWorld:
   def _debug_world_1(selfie):
     for y in range(selfie.height):
       for x in range(selfie.width):
-        print(f'{x},{y} = {selfie.world[y][x].description}')
+        print(f'{y},{x} = {selfie.world[y][x].description}')
         # 0,0 0,1 0,2
         # 1,0 1,1 1,2
         # 2,0 2,1 2,2
