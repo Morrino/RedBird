@@ -78,8 +78,7 @@ if __name__ == '__main__':
       print("")
       print(f'You are in a room in {world.description}.')
       print(f"It's {room.description}.")
-      answer = input(f"What do you do, {welcome.username}? ") 
-      answer = answer.lower()
+      answer = input(f"What do you do, {welcome.username}? ").lower()
 
       if 'q' == answer or 'quit' == answer:
         break
