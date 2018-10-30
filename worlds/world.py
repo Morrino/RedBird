@@ -1,4 +1,5 @@
 #import numpy;
+import random;
 
 from rooms.room import Room
 
@@ -31,7 +32,7 @@ class RandomWorld:
     selfie.density = 0.5
     selfie.freedom = 0.8
 
-    selfie.world = [[Room(f'This room is at {y},{x}') for x in range(w)] for y in range(h)]
+    selfie.world = [[Room(f'a room at {y},{x}') for x in range(w)] for y in range(h)]
 
     #selfie._debug_world_1()
 
@@ -57,7 +58,6 @@ class RandomWorld:
         except:
           pass # world limit
 
-    # TODO
-    # get a list of existing rooms and choice one
-    # flatten world and choice
-    selfie.start = selfie.world[0][0]
+    # start in a random room on this world
+    flat_world = [j for i in selfie.world for j in i]
+    selfie.start = random.choice(flat_world)
