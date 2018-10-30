@@ -47,7 +47,7 @@ def select_world(username):
 
         assert world in worlds.keys(), 'Yoyo, choose a correct world, por favor!'
         print(f"{new_line}You chose wisely, {username}. Be careful and look out for the red birds in {worlds[world]}.")
-        input()
+        input("\n...")
       except:
         continue
       break
