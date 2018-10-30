@@ -82,7 +82,7 @@ if __name__ == '__main__':
 
       if 'q' == answer or 'quit' == answer:
         break
-      elif 'go' in answer:
+      elif "go" in answer.split(" "):
         if 'north' in answer:
           nextroom = room.north
           nextroom.south = room
