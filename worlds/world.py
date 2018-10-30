@@ -1,4 +1,3 @@
-#import numpy;
 import random;
 
 from rooms.room import Room
@@ -25,7 +24,7 @@ class RandomWorld:
         print(f'{y},{x} = {selfie.world[y][x].description if selfie.world[y][x] else ""}')
 
   def _debug2(selfie):
-    print('  ' + ' '.join([f'{i}' for i in list(range(5))]))
+    print('  ' + ' '.join([f'{i}' for i in list(range(selfie.width))]))
     for y in range(selfie.height):
       print(f'{y} ', end='')
       for x in range(selfie.width):
