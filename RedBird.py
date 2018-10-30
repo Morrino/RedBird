@@ -79,20 +79,21 @@ if __name__ == '__main__':
       print(f'You are in a room in {world.description}.')
       print(f"It's {room.description}.")
       answer = input(f"What do you do, {welcome.username}? ").lower()
+      words_in_answer = answer.split(" ")
 
       if 'q' == answer or 'quit' == answer:
         break
-      elif 'go' in answer:
-        if 'north' in answer:
+      elif "go" in words_in_answer:
+        if 'north' in words_in_answer:
           nextroom = room.north
           nextroom.south = room
-        if 'south' in answer:
+        if 'south' in words_in_answer:
           nextroom = room.south
           nextroom.north = room
-        if 'east' in answer:
+        if 'east' in words_in_answer:
           nextroom = room.east
           nextroom.west = room
-        if 'west' in answer:
+        if 'west' in words_in_answer:
           nextroom = room.west
           nextroom.east = room
       elif 'die' == answer:
