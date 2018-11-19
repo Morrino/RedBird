@@ -102,7 +102,7 @@ if __name__ == '__main__':
         world._debug1()
         continue
       elif 'd2' == answer:
-        world._debug2()
+        world._debug2(room)
         continue
       assert nextroom is not None#, 'wat?'
       room = nextroom
