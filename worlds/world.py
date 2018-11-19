@@ -23,14 +23,19 @@ class RandomWorld:
       for x in range(selfie.width):
         print(f'{y},{x} = {selfie.world[y][x].description if selfie.world[y][x] else ""}')
 
-  def _debug2(selfie):
+  def _debug2(selfie, current_room):
     print('  ' + ' '.join([f'{i}' for i in list(range(selfie.width))]))
     for y in range(selfie.height):
       print(f'{y} ', end='')
       for x in range(selfie.width):
         room = selfie.world[y][x]
         if room:
-          print('o ', end='')
+          if room == current_room:
+            print("X ", end='')
+          elif room == selfie.start:
+            print("s ", end='')
+          else:
+            print('o ', end='')
         else:
           print('. ', end='')
       print("")
