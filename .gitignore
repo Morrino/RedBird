@@ -3,3 +3,7 @@ __pycache__/
 
 # Some stupid unwanted DS Store from Apple
 .DS_Store
+
+# Swap files
+*.swp
+*.swo
